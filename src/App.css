@@ -1,0 +1,86 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.coin-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 0.3rem;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.link-btns :hover {
+  color: rgb(186, 233, 0);
+}
+
+marquee {
+  padding: 0.3rem;
+}
+marquee #cont {
+  margin-right: 10px;
+  padding: 0 0.4rem;
+  border-radius: 1rem;
+  color: white;
+  animation: bg ease 1s infinite;
+}
+
+marquee #cont:nth-child(2n + 1) {
+  animation-delay: 1300ms;
+}
+marquee #cont:nth-child(3n + 2) {
+  animation-delay: 1820ms;
+}
+
+.animate {
+  margin-right: 10px;
+  padding: 0 0.4rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: red;
+}
+.mode {
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  top: 6rem;
+}
+@keyframes bg {
+  0% {
+    background: red;
+  }
+
+  100% {
+    background: green;
+  }
+}
+
+@media screen and (width <= 800px) {
+  .coin-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (width <= 600px) {
+  .coin-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (width <= 400px) {
+  .coin-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
