@@ -4,7 +4,8 @@
   position: relative;
 }
 
-.coin-container {
+.coin-container,
+.news-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -70,17 +71,20 @@ marquee #cont:nth-child(3n + 2) {
 }
 
 @media screen and (width <= 800px) {
-  .coin-container {
+  .coin-container,
+  .news-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (width <= 600px) {
-  .coin-container {
+  .coin-container,
+  .news-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (width <= 400px) {
-  .coin-container {
+  .coin-container,
+  .news-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }

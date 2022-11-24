@@ -4,6 +4,7 @@ import { Chip, Grid, Typography } from "@mui/material";
 import "./home.scss";
 import Coins from "../coins/Coins";
 import loading from "../../assets/Rolling.svg";
+import News from "../news/News";
 
 export default function Home() {
   let count = 10;
@@ -41,6 +42,8 @@ export default function Home() {
       </Grid>
       <Typography variant="h3">Top 10 Crypto Currencies</Typography>
       <Coins hello />
+      <Typography variant="h3">Trending Crypto News</Typography>
+      <News hello />
     </div>
   );
 }

@@ -24,6 +24,7 @@ export default function Coins({ hello }) {
     );
   let coins = data?.data?.coins;
   let names = coins.map((coin) => coin.name);
+  names = names.sort();
 
   function filter() {
     let tempCoins = coins;
@@ -54,18 +55,18 @@ export default function Coins({ hello }) {
                 className="title"
                 style={{ display: "flex", justifyContent: "space-between" }}
               >
-                <Typography variant="h6">{coin.rank}</Typography>
+                <Typography variant="p">{coin.rank}</Typography>
                 <Avatar src={coin.iconUrl} />
               </div>
               <Divider />
               <Typography variant="h5">{coin.name}</Typography>
-              <Typography variant="h6">
+              <Typography variant="p">
                 Price : {millify(coin.price)}$
               </Typography>
-              <Typography variant="h6">
+              <Typography variant="p">
                 Change : {millify(coin.change)}%
               </Typography>
-              <Typography variant="h6">
+              <Typography variant="p">
                 Total Market Cap : {millify(coin.marketCap)}
               </Typography>
             </Card>
