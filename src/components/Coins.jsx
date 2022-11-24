@@ -1,27 +1,23 @@
 import {
   Autocomplete,
   Avatar,
-  Badge,
   Card,
   Divider,
   TextField,
   Typography,
 } from "@mui/material";
 import millify from "millify";
-import React, { useEffect, useState } from "react";
-import { useGetCoinsQuery } from "../../queries/cryptoApi";
-import loading from "../../assets/Rolling.svg";
+import React, { useState } from "react";
+import { useGetCoinsQuery } from "../queries/cryptoApi";
+import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function Coins({ hello }) {
-  const count = hello ? 10 : 100;
+  const count = hello ? 12 : 100;
   const { data: data, isLoading } = useGetCoinsQuery(count);
+  if (isLoading) return <Loading />;
+
   const [filterName, setFilterName] = useState("");
-  if (isLoading)
-    return (
-      <div className="loading">
-        <img src={loading} width="50px" />
-      </div>
-    );
   let coins = data?.data?.coins;
   let names = coins.map((coin) => coin.name);
   names = names.sort();
@@ -49,7 +45,7 @@ export default function Coins({ hello }) {
       )}
       <div className="coin-container">
         {filter().map((coin) => (
-          <div key={coin.uuid}>
+          <Link to={`/coins/${coin.uuid}`} key={coin.uuid}>
             <Card className="card">
               <div
                 className="title"
@@ -70,7 +66,7 @@ export default function Coins({ hello }) {
                 Total Market Cap : {millify(coin.marketCap)}
               </Typography>
             </Card>
-          </div>
+          </Link>
         ))}
       </div>
     </>

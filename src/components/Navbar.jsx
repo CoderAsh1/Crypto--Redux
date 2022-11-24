@@ -11,10 +11,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import icon from "../../assets/icon.gif";
+import icon from "../assets/icon.gif";
 
 const drawerWidth = 240;
-const navItems = ["Coins", "News", "Exchanges"];
+const navItems = ["Coins", "News"];
 
 function DrawerAppBar(props) {
   const { window } = props;

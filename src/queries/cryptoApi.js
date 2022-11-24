@@ -18,7 +18,15 @@ export const cryptoApiSlice = createApi({
     getCoins: builder.query({
       query: (count) => cryptoUrl(`/coins?limit=${count}`),
     }),
+    getCoin: builder.query({
+      query: (id) => cryptoUrl(`/coin/${id}`),
+    }),
+    getCoinHistory: builder.query({
+      query: ({ id, time }) =>
+        cryptoUrl(`/coin/${id}/history?timePeriod=${time}`),
+    }),
   }),
 });
 
-export const { useGetCoinsQuery } = cryptoApiSlice;
+export const { useGetCoinsQuery, useGetCoinQuery, useGetCoinHistoryQuery } =
+  cryptoApiSlice;

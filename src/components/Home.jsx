@@ -1,13 +1,12 @@
-import { useGetCoinsQuery } from "../../queries/cryptoApi";
+import { useGetCoinsQuery } from "../queries/cryptoApi";
 import millify from "millify";
 import { Chip, Grid, Typography } from "@mui/material";
-import "./home.scss";
-import Coins from "../coins/Coins";
-import loading from "../../assets/Rolling.svg";
-import News from "../news/News";
+import Coins from "./Coins";
+import loading from "../assets/Rolling.svg";
+import News from "./News";
 
 export default function Home() {
-  let count = 10;
+  let count = 12;
   const { data: data, isLoading } = useGetCoinsQuery(count);
 
   if (isLoading)
@@ -40,7 +39,7 @@ export default function Home() {
           <Typography variant="h3">{millify(totalMarketCap)}</Typography>
         </Grid>
       </Grid>
-      <Typography variant="h3">Top 10 Crypto Currencies</Typography>
+      <Typography variant="h3">Top Crypto Currencies</Typography>
       <Coins hello />
       <Typography variant="h3">Trending Crypto News</Typography>
       <News hello />

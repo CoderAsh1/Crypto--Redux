@@ -1,5 +1,5 @@
 import millify from "millify";
-import { useGetCoinsQuery } from "../../queries/cryptoApi";
+import { useGetCoinsQuery } from "../queries/cryptoApi";
 
 const Marquee = () => {
   const { data: data, isLoading } = useGetCoinsQuery(20);

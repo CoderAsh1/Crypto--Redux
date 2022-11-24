@@ -1,14 +1,10 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Coins from "./components/coins/Coins";
-import Home from "./components/home/Home";
-import Navbar from "./components/navbar/Navbar";
+import { Coins, Home, Navbar, Marquee, News, CoinDetails } from "./components";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Switch } from "@mui/material";
 import { useState } from "react";
-import Marquee from "./components/marquee/Marquee";
-import News from "./components/news/News";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -33,6 +29,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/coins" element={<Coins />} />
+          <Route exact path="/coins/:id" element={<CoinDetails />} />
           <Route exact path="/news" element={<News />} />
         </Routes>
         <div className="footer"></div>

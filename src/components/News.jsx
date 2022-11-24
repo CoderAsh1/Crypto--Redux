@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useGetCryptoNewsQuery } from "../../queries/newsQuery";
-import loading from "../../assets/Rolling.svg";
+import { useGetCryptoNewsQuery } from "../queries/newsQuery";
+import loading from "../assets/Rolling.svg";
 import {
   Autocomplete,
   Avatar,
@@ -9,8 +9,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import icon from "../../assets/icon.gif";
-import { useGetCoinsQuery } from "../../queries/cryptoApi";
+import icon from "../assets/icon.gif";
+import { useGetCoinsQuery } from "../queries/cryptoApi";
 
 export default function News({ hello }) {
   let count = 100;
@@ -18,7 +18,7 @@ export default function News({ hello }) {
   const { data: coin } = useGetCoinsQuery(count);
   let { data: data, isLoading } = useGetCryptoNewsQuery({
     newsCategory: filterName,
-    count: hello ? 10 : 50,
+    count: hello ? 12 : 50,
   });
   if (isLoading)
     return (
@@ -30,8 +30,7 @@ export default function News({ hello }) {
   let newsArticles = data.value;
   let coins = coin?.data?.coins;
   let names = coins && coins.map((coin) => coin.name);
-  names = names.sort();
-  console.log(coins);
+  names = coins && names.sort();
 
   return (
     <>
