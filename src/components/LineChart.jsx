@@ -37,7 +37,7 @@ const LineChart = ({ history, timeFrame }) => {
   };
   return (
     <div>
-      <Line data={data} options={options} />
+      <Line data={data} options={options} className="chart" />
     </div>
   );
 };

@@ -112,6 +112,9 @@ marquee #cont:nth-child(3n + 2) {
     align-items: center;
     gap: 2rem;
   }
+  .chart {
+    max-width: 400px;
+  }
 }
 
 @media screen and (width <= 600px) {
