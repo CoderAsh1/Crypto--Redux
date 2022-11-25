@@ -4,7 +4,7 @@ import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
 Chart.register(CategoryScale);
 
-const LineChart = ({ history }) => {
+const LineChart = ({ history, timeFrame }) => {
   console.log(history);
   const coinPrice = [];
   const coinTimestamp = [];
@@ -23,7 +23,7 @@ const LineChart = ({ history }) => {
     labels: coinTimestamp,
     datasets: [
       {
-        label: "Price In USD",
+        label: "Price In USD" + "   " + "Timeframe:" + timeFrame,
         data: coinPrice,
         fill: false,
         backgroundColor: "#fffff",

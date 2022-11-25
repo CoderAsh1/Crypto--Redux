@@ -16,7 +16,7 @@ const CoinDetails = () => {
   const [timeFrame, setTimeFrame] = useState("7d");
   let { id } = useParams();
   let { data: data, isLoading } = useGetCoinQuery(id);
-  //3h 24h 7d 30d 3m 1y 3y 5y
+
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
   let { data: history } = useGetCoinHistoryQuery({ id, time: timeFrame });
 
@@ -72,7 +72,7 @@ const CoinDetails = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <LineChart history={history} />
+        <LineChart history={history} timeFrame={timeFrame} />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import icon from "../assets/icon.gif";
+import fallback from "../assets/fallback.jpg";
 import { useGetCoinsQuery } from "../queries/cryptoApi";
 
 export default function News({ hello }) {
@@ -31,6 +31,8 @@ export default function News({ hello }) {
   let coins = coin?.data?.coins;
   let names = coins && coins.map((coin) => coin.name);
   names = coins && names.sort();
+
+  console.log(newsArticles);
 
   return (
     <>
@@ -56,21 +58,36 @@ export default function News({ hello }) {
               <Typography variant="p">{news.name}</Typography>
               <Avatar variant="square" sx={{ width: 100, height: 100 }}>
                 <img
-                  src={news?.image?.thumbnail?.contentUrl || icon}
+                  src={news?.image?.thumbnail?.contentUrl || fallback}
                   style={{ width: "100%" }}
                 />
               </Avatar>
             </div>
             <Divider />
 
-            <Typography variant="p">{news?.description}</Typography>
+            <Typography variant="p">
+              {news?.description}
+              <a
+                href={news.url}
+                target="blank"
+                style={{
+                  color: "green",
+                  textDecoration: "underline",
+                  marginLeft: "10px",
+                }}
+              >
+                Read more
+              </a>
+            </Typography>
 
             <div
               className="footer"
               style={{ display: "flex", alignItems: "center", gap: "10px" }}
             >
               <Avatar
-                src={news?.provider[0]?.image?.thumbnail?.contentUrl || icon}
+                src={
+                  news?.provider[0]?.image?.thumbnail?.contentUrl || fallback
+                }
                 alt="src"
               />
               <Typography variant="p">{news.provider[0].name}</Typography>
